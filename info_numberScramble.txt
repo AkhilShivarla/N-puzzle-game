@@ -1,0 +1,50 @@
+-Compilation
+    javac NumberScramble.java
+-Run
+    java NumberScramble
+-Input requirements: a 2D array represents initial grid
+    -input can be given in two ways
+        -1.Program defaults Array
+        -2.Input through KeyBoard
+-'B' is used for representing Blank space
+-reads a space separated elements
+-Input array Example:
+        {{"1","2","3","4"},{"5","6","7","8"},{"B","10","11","12"},{"13","14","9","15"}};
+
+->OUTPUT:
+        output is dispalyed in two ways either Ascending or Descending
+        -Ascending: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 B (final results)
+        -Descending: B 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
+
+-Alogorithm used- A* algorithm (informed serarch algorithm that provide more faster procedure to get the solution)
+
+-Program handle inputMisMatch error and exceptions and type mismatches
+
+Program flow
+        -Takes input from keyboard(initial state of grid)
+    -Tthen sort array according to the user requirement(ascending or descending)
+    -Initialize the grid with initial values through Constructor and find Manhattan distance for each
+    -Main class Constructor is called for expansion and finding of Solution
+    -declaring PriorityQueue for storing objects/state, and sort based on low Manhattan distance
+    -Arraylist to hold all the expanded state/objects of Grid
+    -------------------
+    -Adding Initial Grid to PriorityQueue for expansion
+    -calls expand method of Board class for generating child states.(left,right,down,top)
+    -adding those child states to priorityQueue if it is not visited
+    -recurring through the entire priorityQueue until its free;
+
+
+TEST CASES:
+input 1:
+{{"1","2","3","4"},{"5","6","7","8"},{"B","10","11","12"},{"13","14","9","15"}};
+
+output 1:
+Asc:{{"1,"2","3","4"},{"5","6","7","8"},{"9","10","11","12"},{"13","14","15","B"}};
+Desc:      {{"B","15","14","13"},{"12","11","10","9"},{"8","7","6","5"},{"4","3","2","1"}};
+
+input 2:
+{{"15","9","14","13"},{"12","11","10","B"},{"8","7","6","5"},{"4","3","2","1"}};
+OUtput 2:
+ASC:{{"1","2","3","4"},{"5","6","7","8"},{"9","10","11","12"},{"13","14","15","B"}};
+DESC:{{"B","15","14","13"},{"12","11","10","9"},{"8","7","6","5"},{"4","3","2","1"}};
+
